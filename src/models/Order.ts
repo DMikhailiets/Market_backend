@@ -1,15 +1,11 @@
-import mongoose, { Schema, Document } from 'mongoose';
-import { isEmail } from 'validator';
-import { generatePasswordHash } from '../utils';
-import { isToday } from 'date-fns';
-import differenceInMinutes from "date-fns/differenceInMinutes";
+import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IOrder extends Document {
-    userId?: string;
-    adress?: string;
-    totalPrice?: number;
-    email?: string;
-    order?: any;
+    userId?: string
+    adress?: string
+    totalPrice?: number
+    email?: string
+    order?: any
 }
 
 const OrderSchema = new Schema(
@@ -33,12 +29,12 @@ const OrderSchema = new Schema(
   {
     timestamps: true
   }
-);
+)
 
 OrderSchema.set("toJSON", {
   virtuals: true
-});
+})
 
-const OrderModel = mongoose.model<IOrder>('Order', OrderSchema);
+const OrderModel = mongoose.model<IOrder>('Order', OrderSchema)
 
-export default OrderModel;
+export default OrderModel

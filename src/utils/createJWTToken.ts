@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
-import { reduce } from 'lodash';
+import jwt from 'jsonwebtoken'
+import { reduce } from 'lodash'
 
 interface ILoginData {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
 export default (user: any) => {
@@ -13,9 +13,9 @@ export default (user: any) => {
         user,
         (result: any, value, key) => {
           if (key !== 'password') {
-            result[key] = value;
+            result[key] = value
           }
-          return result;
+          return result
         },
         {},
       ),
@@ -25,7 +25,7 @@ export default (user: any) => {
       expiresIn: process.env.JWT_MAX_AGE,
       algorithm: 'HS256',
     },
-  );
+  )
 
-  return token;
-};
+  return token
+}
